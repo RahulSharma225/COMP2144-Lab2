@@ -39,7 +39,7 @@ const createScene = async function () {
   /* MESHES
     ---------------------------------------------------------------------------------------------------- */
   // STEP 1: Create a simple box, and apply a material and a colour to it.
-  const box = BABYLON.MeshBuilder.CreateBox("box", { size: 0.5 }, scene);
+  const box = BABYLON.MeshBuilder.CreateBox("box", { size: 10 }, scene);
   const boxMat = new BABYLON.StandardMaterial("boxMat");
   boxMat.diffuseColor = new BABYLON.Color3(1, 0.6, 0);
   box.material = boxMat;
