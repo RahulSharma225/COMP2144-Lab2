@@ -48,6 +48,7 @@ const createScene = async function () {
   box.position.z = 2;
 
   // Loading the Mask glTF model
+  // GLTF model taken from https://creazilla.com/media/3d-model/65769/wooden-mask
   BABYLON.SceneLoader.Append(
     "./",
     "scene.gltf",
