@@ -1,6 +1,6 @@
 // Get the canvas element as a const
 const canvas = document.getElementById("renderCanvas");
-// Create the BABYON 3D engine, and attach it to the canvas
+// Create the BABYLON 3D engine, and attach it to the canvas
 const engine = new BABYLON.Engine(canvas, true);
 // The createScene function
 const createScene = async function () {
@@ -47,11 +47,25 @@ const createScene = async function () {
   box.position.y = 1;
   box.position.z = 2;
 
-  /* SOUNDS
-    ---------------------------------------------------------------------------------------------------- */
+  // Loading the Mask glTF model
+  BABYLON.SceneLoader.Append(
+    "./",
+    "scene.gltf",
+    scene,
+    function (scene) {
+      console.log("glTF model loaded successfully!");
 
-  /* ANIMATION
-    ---------------------------------------------------------------------------------------------------- */
+      const meshes = scene.meshes;
+
+      meshes.forEach((mesh) => {
+        mesh.scaling = new BABYLON.Vector3(0.05, 0.05, 0.05); // I can't seem to get the scaling right
+      });
+    },
+    null,
+    function (scene, message, exception) {
+      console.error("Error loading glTF model:", message, exception);
+    }
+  );
 
   /* ENABLE AR
     ---------------------------------------------------------------------------------------------------- */
